@@ -9,5 +9,11 @@ export const GlobalStyles = createGlobalStyle`
   
   body{
     background-color: #2F2E41;
+    font-family: Open Sans, sans-serif;
+  }
+
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 `

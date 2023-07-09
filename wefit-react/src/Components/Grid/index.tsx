@@ -1,10 +1,15 @@
-import React from "react";
+import React, {ReactNode} from "react";
+import {GridArea} from "./GridElements";
 
-function Grid() {
+
+interface Props {
+  children:ReactNode
+}
+function Grid({children}:Props) {
     return (
-        <>
-            <h2>GRID</h2>
-        </>
+      <GridArea>
+        {children}
+      </GridArea>
     );
 }
 

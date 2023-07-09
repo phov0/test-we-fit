@@ -1,26 +1,37 @@
 import styled from "styled-components";
 import {Link} from "react-router-dom";
-export const Nav = styled.nav`
+
+export const SearchArea = styled.div`
   width: 100%;
   display: flex;
-  padding: 18px 10px;
   justify-content: space-between;
-  background-color: #2F2E41;
-  left: 0;
-  top: 0;
-  z-index: 10;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: #FFF;
+  margin-bottom: 16px;
   
- 
+  
 `
 
-export const CartBtn = styled(Link)`
+export const Input = styled.input`
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #C0C0C0;
+  
+  &:focus-visible{
+	outline: none;
+  }
+`
+
+export const CartBtn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
   p{
     margin-right: 8px;
     font-size: 12px;
@@ -33,8 +44,8 @@ export const CartBtn = styled(Link)`
 
 export const NavLink = styled(Link)`
   display: flex;
-  align-items: center;
+  justify-content: center;
   color: white;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 2rem;
 `

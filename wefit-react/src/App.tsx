@@ -1,16 +1,18 @@
 import React from 'react';
-import {BrowserRouter as Router} from "react-router-dom";
 import {GlobalStyles} from "./globalStyles";
 import NavBar from "./Components/NavBar";
-import Grid from "./Components/Grid";
+import {Outlet} from "react-router-dom";
 
 function App() {
+
   return (
-    <Router>
+    <>
       <GlobalStyles/>
       <NavBar/>
-      <Grid/>
-    </Router>
+      <div style={{padding:"0px 16px"}}>
+        <Outlet/>
+      </div>
+    </>
   );
 }
 
