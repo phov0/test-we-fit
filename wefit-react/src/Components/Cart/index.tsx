@@ -1,6 +1,6 @@
 import CartItem from "../CartItem";
 import {Button, ItensArea, Hr, PriceArea, Footer, Header, HeaderText} from "./CartElements";
-import React, {Dispatch, SetStateAction} from "react";
+import React, {Dispatch, SetStateAction, useMemo} from "react";
 import {CartState} from "../../Context";
 import {Product} from "../../Interfaces/Product";
 import { Card } from "./CartElements";
@@ -14,6 +14,10 @@ const Cart = ({setIsFinished}:Props) =>{
 		state: { cart },
 		dispatch
 	} = CartState();
+
+	const totalPrice = useMemo(()=>(
+		`R$ ${cart.reduce((accumulator:any, currentValue:any)=>(accumulator + (currentValue.price * currentValue.amount )),0).toFixed(2).toString().replace(".",",")}`
+	),[cart]);
 
 	const finalizar = () =>{
 		dispatch({type: "CLEAR_CART"})
@@ -40,7 +44,7 @@ const Cart = ({setIsFinished}:Props) =>{
 			<Footer>
 				<PriceArea>
 					<div>TOTAL</div>
-					<span>R$ {(cart.reduce((accumulator:any, currentValue:any)=>(accumulator + (currentValue.price * currentValue.amount )),0)).toFixed(2).toString().replace(".",",")}</span>
+					<span>{totalPrice}</span>
 				</PriceArea>
 				<Button onClick={finalizar}>FINALIZAR PEDIDO</Button>
 			</Footer>

@@ -12,6 +12,7 @@ import {
 import PlusIcon from "../../Assets/Icons/PlusIcon";
 import MinusIcon from "../../Assets/Icons/MinusIcon";
 import TrashIcon from "../../Assets/Icons/TrashIcon";
+import {useMemo} from "react";
 
 const CartItem = ({id,title, price, image, amount = 0}: Product) =>{
 
@@ -19,6 +20,13 @@ const CartItem = ({id,title, price, image, amount = 0}: Product) =>{
 		dispatch
 	} = CartState();
 
+	const formattedPrice = useMemo(()=>(
+		`R$ ${price.toFixed(2).toString().replace(".",",")}`
+	),[price]);
+
+	const subTotal = useMemo(()=>(
+		`R$ ${(price * amount).toFixed(2).toString().replace(".", ",")}`
+	),[price,amount])
 
 	const changeAmount = (newValue:number) =>{
 		dispatch({
@@ -41,10 +49,10 @@ const CartItem = ({id,title, price, image, amount = 0}: Product) =>{
 
 	return (
 		<ItemArea>
-			<Image alt={"Capa do filme"} src={image}/>
+			<Image alt={""} src={image}/>
 			<Details>
 				<Title>{title}</Title>
-				<Price>R$ {price.toFixed(2).toString().replace(".",",")}</Price>
+				<Price>{formattedPrice}</Price>
 			</Details>
 			<TrashIconContainer onClick={removeItem}>
 				<TrashIcon/>
@@ -63,7 +71,7 @@ const CartItem = ({id,title, price, image, amount = 0}: Product) =>{
 					SUBTOTAL
 				</SubTotal>
 				<Price>
-					R$ {(price * amount).toFixed(2).toString().replace(".", ",")}
+					{subTotal}
 				</Price>
 			</SubTotalContainer>
 		</ItemArea>

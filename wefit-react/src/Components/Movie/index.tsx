@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 import { Card, Image, Title, Price, Button, IconArea} from "./MovieElements";
 import CartIcon from "../../Assets/Icons/CartIcon";
 import {CartState} from "../../Context";
@@ -9,15 +9,19 @@ function Movie({id,title, price, image, amount= 0}: Product) {
         dispatch
     } = CartState();
 
+    const formattedPrice = useMemo(()=>(
+        `R$ ${price.toFixed(2).toString().replace(".",",")}`
+    ),[price]);
+
     return (
         <>
             <Card>
-                <Image alt={"Capa do filme"} src={image}></Image>
+                <Image alt={""} src={image}></Image>
                 <Title>
                     {title}
                 </Title>
                 <Price>
-                    R$ {price.toFixed(2).toString().replace(".",",")}
+                    {formattedPrice}
                 </Price>
                 <Button
                     onClick={()=>{

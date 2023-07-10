@@ -1,6 +1,6 @@
 import Movie from "../Movie";
 import Grid from "../Grid";
-import React, { useLayoutEffect} from "react";
+import React, {useLayoutEffect, useMemo} from "react";
 import {useLoaderData, useNavigation} from "react-router-dom";
 import {Product} from "../../Interfaces/Product";
 import Loading from "../Loading";
@@ -22,14 +22,17 @@ const Products = () =>{
         })
     },[products.length]);
 
-    const updatedProducts = products.map((product:Product)=>{
-        const prodOnCart = cart.find((obj:Product) => obj.id === product.id);
-        if(prodOnCart){
-            return {...product, amount:prodOnCart.amount}
-        }else{
-            return product
-        }
-    })
+    const updatedProducts = useMemo(
+        ()=>(
+            products.map((product:Product)=>{
+            const prodOnCart = cart.find((obj:Product) => obj.id === product.id);
+            if(prodOnCart){
+                return {...product, amount:prodOnCart.amount}
+            }else{
+                return product
+            }
+        }))
+        ,[cart]);
 
     if(state === "loading"){
         return <Loading/>
