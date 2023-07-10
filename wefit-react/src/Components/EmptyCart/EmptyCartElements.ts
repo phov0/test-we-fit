@@ -58,4 +58,6 @@ export const Button = styled.button`
   background: #009EDD;
   color: #FFFFFF;
   font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
 `

@@ -50,6 +50,8 @@ export const Button = styled.button<{ $backgroundColor?: string; }>`
   border: none;
   border-radius: 4px;
   font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
   background:${props => props.$backgroundColor || "#009EDD"};
   color: #FFFFFF;
 `
@@ -57,4 +59,5 @@ export const IconArea = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 400;
 `

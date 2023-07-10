@@ -1,8 +1,9 @@
-import {SearchArea, Input,TextArea, Text} from "./SearchBarElements";
+import {SearchArea, Input, TextArea, Text, FindIconArea} from "./SearchBarElements";
 import FindIcon from "../../Assets/Icons/FindIcon";
 import {useNavigate, useParams} from "react-router-dom";
 import {useState} from "react";
 import {CartState} from "../../Context";
+import CloseIcon from "../../Assets/Icons/CloseIcon";
 
 const SearchBar = ()=>{
 
@@ -14,10 +15,10 @@ const SearchBar = ()=>{
         state: { products },
     } = CartState();
 
-    const [state, setState] = useState(title);
+    const [searchValue, setSearchValue] = useState(title);
 
     const find = () =>{
-        navigate(`/${state}`)
+        navigate(`/${searchValue}`)
     }
 
     const handleKeypress = (e:any) => {
@@ -26,18 +27,29 @@ const SearchBar = ()=>{
         }
     };
 
+    const handleClose = () =>{
+        setSearchValue("");
+        navigate("/")
+    }
+
     return(
         <>
             <SearchArea>
                 <Input
                     placeholder={"Buscar filme pelo nome"}
-                    value={state}
-                    onChange={({target}:any)=>{setState(target.value)}}
+                    value={searchValue}
+                    onChange={({target}:any)=>{setSearchValue(target.value)}}
                     onKeyPress={handleKeypress}
                 />
-                <div onClick={find}>
-                    <FindIcon />
-                </div>
+                {
+                    title !== "" && title === searchValue?
+                        <div onClick={handleClose} >
+                            <CloseIcon/>
+                        </div>:
+                        <FindIconArea $notEmpty={searchValue} onClick={find}>
+                            <FindIcon />
+                        </FindIconArea>
+                }
             </SearchArea>
             {
                 title!=="" ?  <TextArea>

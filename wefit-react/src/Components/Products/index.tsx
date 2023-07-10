@@ -32,7 +32,7 @@ const Products = () =>{
                 return product
             }
         }))
-        ,[cart]);
+        ,[cart, products]);
 
     if(state === "loading"){
         return <Loading/>
@@ -42,7 +42,7 @@ const Products = () =>{
             {
                 updatedProducts.length > 0 ?
                     updatedProducts.map((product:any)=><Movie key={product.id} {...product}/>) :
-                    <h2>Sem Produtos</h2>
+                    <></>
             }
         </Grid>
     )

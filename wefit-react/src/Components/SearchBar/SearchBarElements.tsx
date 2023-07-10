@@ -56,4 +56,8 @@ export const Text = styled.div<{ $bold?: boolean; }>`
 
 `
 
-
+export const FindIconArea = styled.div<{$notEmpty:string}>`
+  path{
+    fill: ${props => props.$notEmpty !== "" ? "#2F2E41": "#CCCCCC"}; !important
+  }
+`
