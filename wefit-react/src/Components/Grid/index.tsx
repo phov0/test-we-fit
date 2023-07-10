@@ -3,13 +3,13 @@ import {GridArea} from "./GridElements";
 
 
 interface Props {
-  children:ReactNode
+    children:ReactNode
 }
 function Grid({children}:Props) {
     return (
-      <GridArea>
-        {children}
-      </GridArea>
+        <GridArea>
+            {children}
+        </GridArea>
     );
 }
 

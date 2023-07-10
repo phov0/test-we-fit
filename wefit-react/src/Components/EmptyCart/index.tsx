@@ -1,23 +1,23 @@
-import {Hr, ImageArea, Image, Button, Card} from "./EmptyCartElements";
+import {Hr, Text, ImageArea, Image, Button, Card} from "./EmptyCartElements";
 import EmptyImage from "../../Assets/Images/Group.png";
 import {useNavigate} from "react-router-dom";
 
 const EmptyCart = () =>{
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  return (
-    <Card>
-      <div>Parece que não há nada por aqui :(</div>
-      <ImageArea>
-        <Image src={EmptyImage}/>
-        <Hr/>
-      </ImageArea>
+    return (
+        <Card>
+            <Text>Parece que não <br/> há nada por aqui :(</Text>
+            <ImageArea>
+                <Image alt={""} src={EmptyImage}/>
+            </ImageArea>
+            <Hr/>
 
-      <Button onClick={()=>{navigate("/")}}>
-        VOLTAR
-      </Button>
-    </Card>
-  )
+            <Button onClick={()=>{navigate("/")}}>
+                VOLTAR
+            </Button>
+        </Card>
+    )
 }
 
 export default EmptyCart;

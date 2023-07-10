@@ -1,4 +1,4 @@
-import {Button, Card} from "./OrderSuccesElements";
+import {Button, Card, Text, ImageArea} from "./OrderSuccesElements";
 import OrderFinishedImage from "../../Assets/Images/Group 34.png";
 import {useNavigate} from "react-router-dom";
 
@@ -6,13 +6,16 @@ const OrderSuccess = () => {
     const navigate = useNavigate();
 
     return(
-      <Card>
-        <div>Compra realizada com sucesso!</div>
-        <img src={OrderFinishedImage}/>
-          <Button onClick={()=>{navigate("/")}}>
-          VOLTAR
-        </Button>
-      </Card>
+        <Card>
+            <Text>Compra realizada<br/> com sucesso!</Text>
+            <ImageArea>
+                <img alt={""} src={OrderFinishedImage}/>
+            </ImageArea>
+
+            <Button onClick={()=>{navigate("/")}}>
+                VOLTAR
+            </Button>
+        </Card>
     )
 }
 

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {Link} from "react-router-dom";
 
 export const SearchArea = styled.div`
   width: 100%;
@@ -10,8 +9,7 @@ export const SearchArea = styled.div`
   border-radius: 8px;
   background: #FFF;
   margin-bottom: 16px;
-  
-  
+
 `
 
 export const Input = styled.input`
@@ -21,31 +19,41 @@ export const Input = styled.input`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  color: #C0C0C0;
-  
+  color: #2F2E41;
+  font-family: inherit;
+
   &:focus-visible{
-	outline: none;
+    outline: none;
+  }
+
+  &::placeholder{
+    color: #C0C0C0;
   }
 `
 
-export const CartBtn = styled.div`
+export const TextArea = styled.div`
+  margin-bottom: 16px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  p{
-    margin-right: 8px;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    color: #999999;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+
+  @media (min-width: 500px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 24px 0px 24px 0px
   }
 `
 
-export const NavLink = styled(Link)`
-  display: flex;
-  justify-content: center;
-  color: white;
-  text-decoration: none;
-  font-size: 2rem;
+export const Text = styled.div<{ $bold?: boolean; }>`
+  color: #FFF;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: ${props => props.$bold ? 700 : 400};
+  line-height: normal;
+
 `
+
+

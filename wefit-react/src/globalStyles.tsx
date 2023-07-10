@@ -6,7 +6,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
-  
+
   body{
     background-color: #2F2E41;
     font-family: Open Sans, sans-serif;
@@ -15,5 +15,11 @@ export const GlobalStyles = createGlobalStyle`
   html, body {
     max-width: 100vw;
     overflow-x: hidden;
+  }
+
+  #root{
+    max-width: 960px;
+    margin:auto;
+
   }
 `

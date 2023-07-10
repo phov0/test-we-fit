@@ -1,16 +1,12 @@
-import {LoadingSpin, LoadingContainer} from "./LoadingElements";
+import {LoadingContainer} from "./LoadingElements";
+import Loader from "../../Assets/Images/Loader.png"
 
 const Loading = () =>{
-  return (
-    <LoadingContainer>
-      <LoadingSpin>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </LoadingSpin>
-    </LoadingContainer>
-  )
+    return (
+        <LoadingContainer>
+            <img alt={"Carregando..."} src={Loader}/>
+        </LoadingContainer>
+    )
 }
 
 export default Loading;

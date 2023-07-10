@@ -9,7 +9,7 @@ export const Card = styled.div`
   align-items: center;
   border-radius: 4px;
   background: #FFF;
- 
+
 `
 
 export const Image = styled.img`
@@ -35,10 +35,11 @@ export const Price = styled.div`
   font-weight: 700;
   line-height: normal;
   margin-bottom: 8px;
+  margin-top: 8px;
 `
 
 
-export const Button = styled.button`
+export const Button = styled.button<{ $backgroundColor?: string; }>`
   display: flex;
   height: 40px;
   padding: 8px;
@@ -48,7 +49,8 @@ export const Button = styled.button`
   align-self: stretch;
   border: none;
   border-radius: 4px;
-  background: #009EDD;
+  font-family: inherit;
+  background:${props => props.$backgroundColor || "#009EDD"};
   color: #FFFFFF;
 `
 export const IconArea = styled.div`

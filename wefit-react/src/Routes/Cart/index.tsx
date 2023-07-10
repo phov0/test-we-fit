@@ -8,8 +8,7 @@ import Cart from "../../Components/Cart";
 const CartPage = () =>{
 
     const {
-        state: { cart },
-        dispatch
+        state: { cart }
     } = CartState();
 
     const [isFinished, setIsFinished] = useState(false);
